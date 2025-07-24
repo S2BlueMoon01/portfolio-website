@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/simple-header";
 import { Footer } from "@/components/footer";
@@ -8,56 +7,38 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ScrollAnimations } from "@/components/scroll-animations";
 import CustomCursor from "@/components/CustomCursor";
 import { personalInfo } from "@/data";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
+import { en } from "@/locales/en";
 
 export const metadata: Metadata = {
   title: {
-    default: `${personalInfo.name} - ${personalInfo.title}`,
+    default: `${personalInfo.name} - ${en.seo.title}`,
     template: `%s | ${personalInfo.name}`,
   },
-  description: personalInfo.bio,
-  keywords: [
-    "web developer",
-    "full stack developer",
-    "react developer",
-    "next.js developer",
-    "typescript developer",
-    "frontend developer",
-    "backend developer",
-  ],
+  description: en.seo.description,
+  keywords: en.seo.keywords.split(', '),
   authors: [{ name: personalInfo.name, url: personalInfo.website }],
   creator: personalInfo.name,
+  publisher: personalInfo.name,
   openGraph: {
     type: "website",
     locale: "en_US",
     url: personalInfo.website,
-    title: `${personalInfo.name} - ${personalInfo.title}`,
-    description: personalInfo.bio,
+    title: `${personalInfo.name} - ${en.seo.title}`,
+    description: en.seo.description,
     siteName: personalInfo.name,
     images: [
       {
         url: `${personalInfo.website}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: `${personalInfo.name} - ${personalInfo.title}`,
+        alt: `${personalInfo.name} - ${en.seo.title}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${personalInfo.name} - ${personalInfo.title}`,
-    description: personalInfo.bio,
+    title: `${personalInfo.name} - ${en.seo.title}`,
+    description: en.seo.description,
     images: [`${personalInfo.website}/og-image.jpg`],
   },
   robots: {
@@ -72,7 +53,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code", // Thay thế bằng mã xác minh Google thật
+    google: "your-google-verification-code",
   },
 };
 
@@ -83,9 +64,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background font-sans`}
-      >
+      <body className="antialiased min-h-screen bg-background font-sans">
         <ThemeProvider
           defaultTheme="system"
           enableSystem
