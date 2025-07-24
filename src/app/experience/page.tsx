@@ -1,6 +1,20 @@
-import { skills } from "@/data"
+"use client";
+
+import { skills, getExperiences, getEducation } from "@/data"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export default function ExperiencePage() {
+  const { t, language } = useLanguage()
+  const experiences = getExperiences(language)
+  const education = getEducation(language)
+  
+  const formatDateRange = (startDate: Date, endDate?: Date) => {
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short' }
+    const start = startDate.toLocaleDateString('en-US', options)
+    const end = endDate ? endDate.toLocaleDateString('en-US', options) : t('experience.present')
+    return `${start} - ${end}`
+  }
+  
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -14,10 +28,10 @@ export default function ExperiencePage() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
-              Experience & <span className="bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">Education</span>
+              {t('experience.title')}
             </h1>
             <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-              My professional journey, educational background, and the skills I've developed along the way.
+              {t('experience.subtitle')}
             </p>
           </div>
         </div>
@@ -28,37 +42,15 @@ export default function ExperiencePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-              Professional Experience
+              {t('experience.workExperience')}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              My career journey and the roles that have shaped my professional development.
+              {t('experience.cta.workTitle')}
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto space-y-8">
-            {[
-              {
-                position: "Senior Frontend Developer",
-                company: "Tech Company ABC",
-                period: "Mar 2022 - Present",
-                description: "Led the development of modern web applications using React, Next.js, and TypeScript. Mentored junior developers and improved application performance by 40%.",
-                technologies: ["React", "Next.js", "TypeScript", "Node.js", "MongoDB"]
-              },
-              {
-                position: "Full Stack Developer",
-                company: "Startup XYZ",
-                period: "Jun 2020 - Feb 2022",
-                description: "Developed and maintained multiple client projects using various technologies. Built REST APIs, integrated third-party services, and implemented responsive designs.",
-                technologies: ["React", "Node.js", "Express", "MongoDB", "AWS"]
-              },
-              {
-                position: "Frontend Developer",
-                company: "Web Agency 123",
-                period: "Jan 2019 - May 2020",
-                description: "Created responsive websites and web applications for various clients. Collaborated with designers and backend developers to deliver high-quality solutions.",
-                technologies: ["HTML", "CSS", "JavaScript", "Vue.js", "PHP"]
-              }
-            ].map((exp, index) => (
+            {experiences.map((exp, index) => (
               <div
                 key={index}
                 className="bg-card backdrop-blur-sm p-6 rounded-xl border border-border hover:border-primary/50 hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-2"
@@ -73,7 +65,7 @@ export default function ExperiencePage() {
                     </p>
                   </div>
                   <span className="text-sm text-muted-foreground font-medium bg-muted px-3 py-1 rounded-full">
-                    {exp.period}
+                    {formatDateRange(exp.startDate, exp.endDate)}
                   </span>
                 </div>
                 
@@ -110,28 +102,15 @@ export default function ExperiencePage() {
         <div className="container mx-auto px-4 relative">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-              Education
+              {t('experience.education')}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              My educational background and continuous learning journey.
+              {t('experience.cta.educationSubtitle')}
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-            {[
-              {
-                degree: "Bachelor of Computer Science",
-                institution: "University of Technology",
-                period: "2015 - 2019",
-                description: "Focused on software engineering, algorithms, and data structures. Graduated with honors."
-              },
-              {
-                degree: "Full Stack Web Development Bootcamp",
-                institution: "Coding Academy",
-                period: "2019",
-                description: "Intensive program covering modern web development technologies and best practices."
-              }
-            ].map((edu, index) => (
+            {education.map((edu, index) => (
               <div
                 key={index}
                 className="bg-card backdrop-blur-sm p-6 rounded-xl border border-border hover:border-primary/50 hover:shadow-xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-2"
@@ -141,7 +120,7 @@ export default function ExperiencePage() {
                     {edu.degree}
                   </h3>
                   <span className="text-sm text-muted-foreground font-medium bg-muted px-3 py-1 rounded-full">
-                    {edu.period}
+                    {formatDateRange(edu.startDate, edu.endDate)}
                   </span>
                 </div>
                 <p className="text-primary font-medium mb-2">
@@ -169,10 +148,10 @@ export default function ExperiencePage() {
         <div className="container mx-auto px-4 relative">
           <div className="text-center mb-16 animate-fade-in-up scroll-trigger">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-              Skills & Technologies
+              {t('experience.skills')}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              The tools and technologies I use to build amazing digital experiences.
+              {t('experience.cta.skillsSubtitle')}
             </p>
           </div>
 
@@ -231,10 +210,10 @@ export default function ExperiencePage() {
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-3xl mx-auto animate-fade-in-up scroll-trigger">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white animate-fade-in-down drop-shadow-lg">
-              Let's Work Together
+              {t('cta.title')}
             </h2>
             <p className="text-xl text-white/90 mb-8 leading-relaxed animate-fade-in-up animation-delay-200 drop-shadow-md">
-              I'm always excited to take on new challenges and collaborate on interesting projects.
+              {t('cta.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-400">
               <a
@@ -242,14 +221,14 @@ export default function ExperiencePage() {
                 className="bg-white text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-1000 transform hover:scale-105 hover-lift inline-flex items-center justify-center border-2 border-white shadow-lg hover:shadow-2xl"
               >
                 <span className="mr-2">🚀</span>
-                Get In Touch
+                {t('contact.title')}
               </a>
               <a
                 href="/projects"
-                className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-semibold transition-all duration-1000 transform hover:scale-105 hover-lift inline-flex items-center justify-center shadow-lg hover:shadow-xl"
+                className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg font-semibold transition-all duration-1000 transform hover:scale-105 hover-lift inline-flex items-center justify-center shadow-lg hover:shadow-xl"
               >
                 <span className="mr-2">📁</span>
-                View My Projects
+                {t('nav.projects')}
               </a>
             </div>
           </div>

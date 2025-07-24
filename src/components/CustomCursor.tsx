@@ -107,8 +107,8 @@ export default function CustomCursor() {
           isHovering ? 'scale-200 opacity-30' : 'scale-100 opacity-60'
         }`}
         style={{
-          left: mousePosition.x - 2,
-          top: mousePosition.y - 2,
+          left: mousePosition.x,
+          top: mousePosition.y,
         }}
       />
 
@@ -118,8 +118,8 @@ export default function CustomCursor() {
           isHovering ? 'scale-300 opacity-20' : 'scale-150 opacity-40'
         }`}
         style={{
-          left: mousePosition.x - 4,
-          top: mousePosition.y - 4,
+          left: mousePosition.x,
+          top: mousePosition.y,
         }}
       />
     </>

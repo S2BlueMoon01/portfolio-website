@@ -1,12 +1,14 @@
 'use client'
 
 import Link from "next/link"
-import { personalInfo, projects, skills } from "@/data"
+import { skills, getPersonalInfo, getProjects } from "@/data"
 import { useLanguage } from "@/contexts/LanguageContext"
 
 export default function HomePage() {
+  const { t, language } = useLanguage()
+  const personalInfo = getPersonalInfo(language)
+  const projects = getProjects(language)
   const featuredProjects = projects.filter(project => project.featured).slice(0, 3)
-  const { t } = useLanguage()
 
   return (
     <div className="min-h-screen">
@@ -266,7 +268,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/about"
-                className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover-lift inline-flex items-center justify-center shadow-lg hover:shadow-xl"
+                className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover-lift inline-flex items-center justify-center shadow-lg hover:shadow-xl"
               >
                 <span className="mr-2">👨‍💻</span>
                 {t('cta.learnMore')}

@@ -3,10 +3,12 @@
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { ContactForm } from "@/types"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState("")
+  const { t } = useLanguage()
   
   const {
     register,
@@ -20,10 +22,10 @@ export default function ContactPage() {
     try {
       // Simulate form submission
       await new Promise(resolve => setTimeout(resolve, 2000))
-      setSubmitMessage("Thank you for your message! I'll get back to you soon.")
+      setSubmitMessage(t('contact.successMessage'))
       reset()
     } catch {
-      setSubmitMessage("Something went wrong. Please try again.")
+      setSubmitMessage(t('contact.errorMessage'))
     }
     setIsSubmitting(false)
   }
@@ -41,10 +43,10 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
-              Get In <span className="bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">Touch</span>
+              {t('contact.title').split(' ')[0]} <span className="bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">{t('contact.title').split(' ').slice(1).join(' ')}</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-              Have a project in mind or just want to say hello? I'd love to hear from you.
+              {t('contact.subtitle')}
             </p>
           </div>
         </div>
@@ -58,11 +60,10 @@ export default function ContactPage() {
             <div className="space-y-8">
               <div className="bg-card backdrop-blur-sm p-8 rounded-xl border border-border hover:border-primary/50 transition-all duration-300">
                 <h2 className="text-3xl font-bold mb-6 text-foreground">
-                  Let's Start a Conversation
+                  {t('contact.conversation.title')}
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  I'm always open to discussing new opportunities, creative projects, 
-                  or just having a friendly chat about technology and innovation.
+                  {t('contact.conversation.subtitle')}
                 </p>
               </div>
 
@@ -88,7 +89,7 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground">Location</h3>
+                    <h3 className="font-semibold text-foreground">{t('contact.location')}</h3>
                     <p className="text-muted-foreground">Ho Chi Minh City, Vietnam</p>
                   </div>
                 </div>
@@ -109,19 +110,19 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div className="bg-card backdrop-blur-sm p-8 rounded-xl border border-border">
-              <h2 className="text-2xl font-bold mb-6 text-foreground">Send a Message</h2>
+              <h2 className="text-2xl font-bold mb-6 text-foreground">{t('contact.sendMessage')}</h2>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                      Name *
+                      {t('contact.name')} *
                     </label>
                     <input
                       type="text"
                       id="name"
-                      {...register("name", { required: "Name is required" })}
+                      {...register("name", { required: t('contact.validation.nameRequired') })}
                       className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground placeholder:text-muted-foreground"
-                      placeholder="Your Name"
+                      placeholder={t('contact.namePlaceholder')}
                     />
                     {errors.name && (
                       <p className="mt-1 text-sm text-destructive">
@@ -132,20 +133,20 @@ export default function ContactPage() {
 
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                      Email *
+                      {t('contact.email')} *
                     </label>
                     <input
                       type="email"
                       id="email"
                       {...register("email", { 
-                        required: "Email is required",
+                        required: t('contact.validation.emailRequired'),
                         pattern: {
                           value: /^\S+@\S+$/i,
-                          message: "Invalid email address"
+                          message: t('contact.validation.invalidEmail')
                         }
                       })}
                       className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground placeholder:text-muted-foreground"
-                      placeholder="your.email@example.com"
+                      placeholder={t('contact.emailPlaceholder')}
                     />
                     {errors.email && (
                       <p className="mt-1 text-sm text-destructive">
@@ -157,14 +158,14 @@ export default function ContactPage() {
 
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
-                    Subject *
+                    {t('contact.subject')} *
                   </label>
                   <input
                     type="text"
                     id="subject"
-                    {...register("subject", { required: "Subject is required" })}
+                    {...register("subject", { required: t('contact.validation.subjectRequired') })}
                     className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground placeholder:text-muted-foreground"
-                    placeholder="Project Inquiry"
+                    placeholder={t('contact.subjectPlaceholder')}
                   />
                   {errors.subject && (
                     <p className="mt-1 text-sm text-destructive">
@@ -175,14 +176,14 @@ export default function ContactPage() {
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Message *
+                    {t('contact.message')} *
                   </label>
                   <textarea
                     id="message"
                     rows={6}
-                    {...register("message", { required: "Message is required" })}
+                    {...register("message", { required: t('contact.validation.messageRequired') })}
                     className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground placeholder:text-muted-foreground resize-none"
-                    placeholder="Tell me about your project or just say hello..."
+                    placeholder={t('contact.messagePlaceholder')}
                   />
                   {errors.message && (
                     <p className="mt-1 text-sm text-destructive">
@@ -194,7 +195,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-gradient-to-r from-primary via-purple-600 to-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center"
                 >
                   {isSubmitting ? (
                     <>
@@ -202,17 +203,17 @@ export default function ContactPage() {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
-                      <span>Sending...</span>
+                      <span>{t('contact.sending')}</span>
                     </>
                   ) : (
-                    <span>Send Message</span>
+                    <span>{t('contact.sendMessage')}</span>
                   )}
                 </button>
 
                 {submitMessage && (
                   <div
                     className={`p-4 rounded-lg ${
-                      submitMessage.includes("Thank you") 
+                      submitMessage === t('contact.successMessage')
                         ? "bg-green-500/10 border border-green-500/20 text-green-600 dark:text-green-400"
                         : "bg-destructive/10 border border-destructive/20 text-destructive"
                     }`}
@@ -231,23 +232,23 @@ export default function ContactPage() {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-              Ready to Start Your Project?
+              {t('contact.cta.title')}
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Let's work together to bring your ideas to life with cutting-edge technology.
+              {t('contact.cta.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="mailto:your.email@example.com"
                 className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-200"
               >
-                Send Email
+                {t('contact.cta.sendEmail')}
               </a>
               <a
                 href="/projects"
                 className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-colors duration-200"
               >
-                View My Work
+                {t('contact.cta.viewWork')}
               </a>
             </div>
           </div>

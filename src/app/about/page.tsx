@@ -1,6 +1,12 @@
-import { personalInfo, skills } from "@/data"
+"use client";
+
+import { skills, getPersonalInfo } from "@/data"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export default function AboutPage() {
+  const { t, language } = useLanguage()
+  const personalInfo = getPersonalInfo(language)
+  
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -14,10 +20,16 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
-              About <span className="bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">Me</span>
+              {t('about.title').split(' ').map((word, index, array) => 
+                index === array.length - 1 ? (
+                  <span key={index} className="bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">{word}</span>
+                ) : (
+                  <span key={index}>{word} </span>
+                )
+              )}
             </h1>
             <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-              Passionate developer with a love for creating beautiful, functional, and user-friendly digital experiences.
+              {t('about.subtitle')}
             </p>
           </div>
         </div>
@@ -38,20 +50,17 @@ export default function AboutPage() {
 
             <div className="animate-fade-in-up scroll-trigger animation-delay-200">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-                My Story
+                {t('about.introduction')}
               </h2>
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                 <p>
                   {personalInfo.bio}
                 </p>
                 <p>
-                  I believe in the power of clean code, intuitive design, and continuous learning. 
-                  Every project is an opportunity to push boundaries and create something meaningful 
-                  that makes a difference in people's lives.
+                  {t('about.story.paragraph1')}
                 </p>
                 <p>
-                  When I'm not coding, you can find me exploring new technologies, contributing to 
-                  open-source projects, or sharing my knowledge with the developer community.
+                  {t('about.story.paragraph2')}
                 </p>
               </div>
 
@@ -81,10 +90,10 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 relative">
           <div className="text-center mb-16 animate-fade-in-up scroll-trigger">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-              Skills & Expertise
+              {t('about.skills')}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A comprehensive overview of my technical skills and proficiency levels
+              {t('about.skillsSubtitle')}
             </p>
           </div>
 
@@ -122,27 +131,27 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up scroll-trigger">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-              Quick Facts
+              {t('about.facts.title')}
             </h2>
             <p className="text-lg text-muted-foreground">
-              Some interesting things about me
+              {t('about.facts.subtitle')}
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
             <div className="text-center p-6 bg-card backdrop-blur-sm rounded-xl hover:shadow-xl hover:shadow-primary/20 animate-fade-in-up scroll-trigger border border-border hover:border-primary/50 hover:-translate-y-2 transition-all duration-300">
               <div className="text-4xl mb-4">🚀</div>
-              <h3 className="text-xl font-semibold mb-2 text-foreground">Projects Built</h3>
+              <h3 className="text-xl font-semibold mb-2 text-foreground">{t('about.facts.projectsBuilt')}</h3>
               <p className="text-3xl font-bold text-primary">50+</p>
             </div>
             <div className="text-center p-6 bg-card backdrop-blur-sm rounded-xl hover:shadow-xl hover:shadow-purple-500/20 animate-fade-in-up scroll-trigger animation-delay-200 border border-border hover:border-purple-500/50 hover:-translate-y-2 transition-all duration-300">
               <div className="text-4xl mb-4">⚡</div>
-              <h3 className="text-xl font-semibold mb-2 text-foreground">Years Experience</h3>
+              <h3 className="text-xl font-semibold mb-2 text-foreground">{t('about.facts.yearsExperience')}</h3>
               <p className="text-3xl font-bold text-purple-500">5+</p>
             </div>
             <div className="text-center p-6 bg-card backdrop-blur-sm rounded-xl hover:shadow-xl hover:shadow-pink-500/20 animate-fade-in-up scroll-trigger animation-delay-300 border border-border hover:border-pink-500/50 hover:-translate-y-2 transition-all duration-300">
               <div className="text-4xl mb-4">☕</div>
-              <h3 className="text-xl font-semibold mb-2 text-foreground">Cups of Coffee</h3>
+              <h3 className="text-xl font-semibold mb-2 text-foreground">{t('about.facts.cupsOfCoffee')}</h3>
               <p className="text-3xl font-bold text-pink-500">∞</p>
             </div>
           </div>
@@ -163,24 +172,23 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-3xl mx-auto animate-fade-in-up scroll-trigger">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-              Let's Work Together
+              {t('about.cta.title')}
             </h2>
             <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-              I'm always interested in new opportunities and exciting projects. 
-              Let's discuss how we can bring your ideas to life.
+              {t('about.cta.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/contact"
                 className="bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover-lift hover:shadow-lg"
               >
-                Get in Touch
+                {t('about.cta.getInTouch')}
               </a>
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover-lift"
+                className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover-lift"
               >
-                Send Email
+                {t('about.cta.sendEmail')}
               </a>
             </div>
           </div>

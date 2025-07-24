@@ -1,9 +1,13 @@
+"use client";
+
 import Link from "next/link"
 import { personalInfo, socialLinks, navigation } from "@/data"
 import { HeartIcon } from "@heroicons/react/24/solid"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
+  const { t } = useLanguage()
 
   return (
     <footer className="bg-gradient-to-br from-background via-background to-muted/20 border-t border-border/20 relative overflow-hidden">
@@ -31,7 +35,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-muted-foreground mb-6 max-w-md leading-relaxed">
-              {personalInfo.bio}
+              {t('footer.description')}
             </p>
             <div className="flex items-center space-x-4">
               {socialLinks.map((social, index) => (
@@ -76,7 +80,7 @@ export function Footer() {
 
           {/* Navigation */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground text-lg">Navigation</h3>
+            <h3 className="font-semibold text-foreground text-lg">{t('footer.quickLinks')}</h3>
             <ul className="space-y-3">
               {navigation.map((item, index) => (
                 <li key={item.href} 
@@ -88,7 +92,7 @@ export function Footer() {
                     href={item.href}
                     className="text-muted-foreground hover:text-primary transition-all duration-300 hover:translate-x-2 inline-block relative group"
                   >
-                    <span className="relative z-10">{item.name}</span>
+                    <span className="relative z-10">{t(`nav.${item.name.toLowerCase()}`) || item.name}</span>
                     <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-purple-500 group-hover:w-full transition-all duration-300"></div>
                   </Link>
                 </li>
@@ -98,7 +102,7 @@ export function Footer() {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground text-lg">Get In Touch</h3>
+            <h3 className="font-semibold text-foreground text-lg">{t('footer.connect')}</h3>
             <div className="space-y-3 text-muted-foreground">
               <div className="flex items-center space-x-3 group">
                 <div className="w-5 h-5 text-primary">
@@ -144,14 +148,17 @@ export function Footer() {
         {/* Bottom Section */}
         <div className="mt-16 pt-8 border-t border-border/20 flex flex-col md:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm">
-            © {currentYear} {personalInfo.name}. All rights reserved.
+            © {currentYear} {personalInfo.name}. {t('footer.allRightsReserved')}
           </p>
           <p className="text-muted-foreground text-sm flex items-center gap-2 mt-2 md:mt-0 group">
-            Built with 
+            {t('footer.builtWith')} 
             <HeartIcon className="w-4 h-4 text-red-500 animate-pulse group-hover:scale-125 transition-transform duration-300" /> 
             using 
             <span className="font-semibold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
               Next.js
+            </span> {t('footer.and')} 
+            <span className="font-semibold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+              TypeScript
             </span>
           </p>
         </div>
