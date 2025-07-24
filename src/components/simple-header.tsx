@@ -4,11 +4,14 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { LanguageToggle } from "@/components/LanguageToggle";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { navigation, personalInfo } from "@/data";
 import { cn } from "@/lib/utils";
 
 export function Header() {
   const pathname = usePathname();
+  const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [scrollProgress, setScrollProgress] = React.useState(0);
@@ -77,7 +80,7 @@ export function Header() {
                   animationDelay: `${index * 100}ms`,
                 }}
               >
-                <span className="relative z-10 group-hover:scale-105 transition-transform duration-300">{item.name}</span>
+                <span className="relative z-10 group-hover:scale-105 transition-transform duration-300">{t(`nav.${item.name.toLowerCase()}`) || item.name}</span>
                 <div className={cn(
                   "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-purple-500 transition-all duration-500",
                   pathname === item.href ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
@@ -167,14 +170,15 @@ export function Header() {
               </span>
             </Link>
           </div>
-          <nav className="flex items-center">
+          <nav className="flex items-center gap-2">
+            <LanguageToggle />
             <ThemeToggle />
           </nav>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="absolute top-16 left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border/20 md:hidden shadow-2xl shadow-primary/10 animate-in slide-in-from-top duration-300">
+          <div className="absolute top-16 left-0 right-0 bg-background/98 backdrop-blur-2xl border-b border-border/30 md:hidden shadow-2xl shadow-primary/10 animate-in slide-in-from-top duration-300">
             <nav className="flex flex-col space-y-1 p-6">
               {navigation.map((item, index) => (
                 <Link
@@ -193,7 +197,7 @@ export function Header() {
                   {/* Animated background */}
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   
-                  <span className="relative z-10 group-hover:translate-x-2 transition-transform duration-300">{item.name}</span>
+                  <span className="relative z-10 group-hover:translate-x-2 transition-transform duration-300">{t(`nav.${item.name.toLowerCase()}`) || item.name}</span>
                   
                   {pathname === item.href && (
                     <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-primary to-purple-500 rounded-full animate-pulse"></div>

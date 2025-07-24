@@ -1,8 +1,12 @@
+'use client'
+
 import Link from "next/link"
 import { personalInfo, projects, skills } from "@/data"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export default function HomePage() {
   const featuredProjects = projects.filter(project => project.featured).slice(0, 3)
+  const { t } = useLanguage()
 
   return (
     <div className="min-h-screen">
@@ -57,12 +61,12 @@ export default function HomePage() {
 
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed animate-fade-in-up animation-delay-500">
-              {personalInfo.title}
+              {t('hero.title')}
             </p>
 
             {/* Bio */}
             <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up animation-delay-700">
-              {personalInfo.bio}
+              {t('hero.bio')}
             </p>
 
             {/* CTA Buttons */}
@@ -72,14 +76,14 @@ export default function HomePage() {
                 className="btn-primary hover-lift"
               >
                 <span className="mr-2">🚀</span>
-                View My Work
+                {t('hero.viewWork')}
               </Link>
               <Link
                 href="/contact"
                 className="btn-secondary hover-lift"
               >
                 <span className="mr-2">💬</span>
-                Get in Touch
+                {t('hero.getInTouch')}
               </Link>
             </div>
 
@@ -108,10 +112,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4 relative">
           <div className="text-center mb-16 animate-fade-in-up scroll-trigger">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-              Skills & Technologies
+              {t('skills.title')}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              The tools and technologies I use to build amazing digital experiences
+              {t('skills.subtitle')}
             </p>
           </div>
 
@@ -169,10 +173,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16 animate-fade-in-up scroll-trigger">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-              Featured Projects
+              {t('projects.title')}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A showcase of my recent work and creative endeavors
+              {t('projects.subtitle')}
             </p>
           </div>
 
@@ -210,7 +214,7 @@ export default function HomePage() {
                     href={`/projects#${project.id}`}
                     className="text-primary hover:text-purple-600 font-medium group-hover:underline transition-all duration-300 inline-flex items-center hover:translate-x-1"
                   >
-                    Learn More 
+                    {t('projects.learnMore')} 
                     <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
@@ -226,7 +230,7 @@ export default function HomePage() {
               className="btn-primary hover-lift"
             >
               <span className="mr-2">👀</span>
-              View All Projects
+              {t('projects.viewAll')}
             </Link>
           </div>
         </div>
@@ -247,10 +251,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-3xl mx-auto animate-fade-in-up scroll-trigger">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white animate-fade-in-down drop-shadow-lg">
-              Ready to Start Your Next Project?
+              {t('cta.title')}
             </h2>
             <p className="text-xl text-white/90 mb-8 leading-relaxed animate-fade-in-up animation-delay-200 drop-shadow-md">
-              Let's work together to bring your ideas to life. I'm always excited to take on new challenges and create something amazing.
+              {t('cta.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-400">
               <Link
@@ -258,14 +262,14 @@ export default function HomePage() {
                 className="bg-white text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover-lift inline-flex items-center justify-center border-2 border-white shadow-lg hover:shadow-2xl"
               >
                 <span className="mr-2">🚀</span>
-                Get Started
+                {t('cta.getStarted')}
               </Link>
               <Link
                 href="/about"
                 className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover-lift inline-flex items-center justify-center shadow-lg hover:shadow-xl"
               >
                 <span className="mr-2">👨‍💻</span>
-                Learn More About Me
+                {t('cta.learnMore')}
               </Link>
             </div>
           </div>

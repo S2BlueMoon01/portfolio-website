@@ -4,7 +4,9 @@ import "./globals.css";
 import { Header } from "@/components/simple-header";
 import { Footer } from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ScrollAnimations } from "@/components/scroll-animations";
+import CustomCursor from "@/components/CustomCursor";
 import { personalInfo } from "@/data";
 
 const geistSans = Geist({
@@ -89,14 +91,17 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1">
-              {children}
-            </main>
-            <Footer />
-          </div>
-          <ScrollAnimations />
+          <LanguageProvider>
+            <CustomCursor />
+            <div className="flex min-h-screen flex-col">
+              <Header />
+              <main className="flex-1">
+                {children}
+              </main>
+              <Footer />
+            </div>
+            <ScrollAnimations />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>
