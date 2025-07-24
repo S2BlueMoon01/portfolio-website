@@ -65,7 +65,7 @@ export const en = {
     name: 'Name',
     namePlaceholder: 'Your full name',
     email: 'Email',
-    emailPlaceholder: 'your.email@example.com',
+    emailPlaceholder: 's2ngochai01@gmail.com',
     subject: 'Subject',
     subjectPlaceholder: 'What\'s this about?',
     message: 'Message',

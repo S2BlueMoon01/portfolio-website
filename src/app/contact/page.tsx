@@ -77,7 +77,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Email</h3>
-                    <p className="text-muted-foreground">your.email@example.com</p>
+                    <p className="text-muted-foreground">s2ngochai01@gmail.com</p>
                   </div>
                 </div>
 
@@ -239,7 +239,7 @@ export default function ContactPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:s2ngochai01@gmail.com"
                 className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-200"
               >
                 {t('contact.cta.sendEmail')}

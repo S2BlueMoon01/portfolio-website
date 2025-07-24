@@ -65,7 +65,7 @@ export const ja = {
     name: '名前',
     namePlaceholder: 'お名前',
     email: 'メール',
-    emailPlaceholder: 'your.email@example.com',
+    emailPlaceholder: 's2ngochai01@gmail.com',
     subject: '件名',
     subjectPlaceholder: 'どのような件でしょうか？',
     message: 'メッセージ',
