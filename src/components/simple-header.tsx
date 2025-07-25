@@ -68,27 +68,29 @@ export function Header() {
             </span>
           </Link>
           <nav className="flex items-center space-x-8 text-sm font-medium">
-            {navigation.map((item, index) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "relative py-2 px-1 transition-all duration-300 hover:text-primary group",
-                  pathname === item.href ? "text-primary" : "text-foreground/70 hover:text-foreground"
-                )}
-                style={{
-                  animationDelay: `${index * 100}ms`,
-                }}
-              >
-                <span className="relative z-10 group-hover:scale-105 transition-transform duration-300">{t(`nav.${item.name.toLowerCase()}`) || item.name}</span>
-                <div className={cn(
-                  "absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-purple-500 transition-all duration-500",
-                  pathname === item.href ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                )}></div>
-                {/* Floating dots on hover */}
-                <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-all duration-300"></div>
-              </Link>
-            ))}
+            {navigation.map((item, index) => {
+              const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "relative py-2 px-3 rounded-lg transition-all duration-300 hover:text-primary group",
+                    isActive 
+                      ? "text-primary bg-primary/10" 
+                      : "text-foreground/70 hover:text-foreground hover:bg-muted/50"
+                  )}
+                  style={{
+                    animationDelay: `${index * 100}ms`,
+                    boxShadow: isActive ? '0 2px 0 0 hsl(var(--primary))' : 'none'
+                  }}
+                >
+                  <span className="relative z-10 group-hover:scale-105 transition-transform duration-300">{t(`nav.${item.name.toLowerCase()}`) || item.name}</span>
+                  {/* Floating dots on hover */}
+                  <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-all duration-300"></div>
+                </Link>
+              );
+            })}
           </nav>
         </div>
 
@@ -176,37 +178,55 @@ export function Header() {
         {isMenuOpen && (
           <div className="absolute top-16 left-0 right-0 bg-background/100 backdrop-blur-none border-b border-border md:hidden shadow-2xl animate-in slide-in-from-top duration-300" style={{ backgroundColor: 'hsl(var(--background))' }}>
             <nav className="flex flex-col space-y-2 p-6" style={{ backgroundColor: 'hsl(var(--background))' }}>
-              {navigation.map((item, index) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    "relative py-4 px-5 rounded-xl transition-all duration-300 hover:bg-muted group text-sm font-medium overflow-hidden",
-                    pathname === item.href ? "text-primary bg-muted shadow-md" : "text-foreground hover:text-foreground"
-                  )}
-                  onClick={() => setIsMenuOpen(false)}
-                  style={{
-                    animationDelay: `${index * 100}ms`,
-                    animation: "fadeInUp 0.4s ease-out forwards"
-                  }}
-                >
-                  {/* Animated background */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
-                  
-                  <span className="relative z-10 group-hover:translate-x-2 transition-transform duration-300">{t(`nav.${item.name.toLowerCase()}`) || item.name}</span>
-                  
-                  {pathname === item.href && (
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-primary to-purple-500 rounded-full animate-pulse"></div>
-                  )}
-                  
-                  {/* Hover arrow */}
-                  <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 translate-x-2 transition-all duration-300">
-                    <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </Link>
-              ))}
+              {navigation.map((item, index) => {
+                const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      "relative py-4 px-5 rounded-xl transition-all duration-300 group text-sm font-medium",
+                      isActive 
+                        ? "text-primary bg-primary/10 border-primary/20 shadow-md" 
+                        : "text-foreground hover:text-foreground hover:bg-muted border-transparent hover:border-border"
+                    )}
+                    onClick={() => setIsMenuOpen(false)}
+                    style={{
+                      animationDelay: `${index * 100}ms`,
+                      animation: "fadeInUp 0.4s ease-out forwards",
+                      boxShadow: isActive 
+                        ? '0 2px 0 0 hsl(var(--primary)), 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)' 
+                        : '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)'
+                    }}
+                  >
+                    {/* Animated background */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                    
+                    <span className="relative z-10 group-hover:translate-x-2 transition-transform duration-300 font-medium">{t(`nav.${item.name.toLowerCase()}`) || item.name}</span>
+                    
+                    {isActive && (
+                      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-primary to-purple-500 rounded-full animate-pulse"></div>
+                    )}
+                    
+                    {/* Active indicator */}
+                    {isActive && (
+                      <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                        <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                      </div>
+                    )}
+                    
+                    {/* Hover arrow */}
+                    <div className={cn(
+                      "absolute right-4 top-1/2 -translate-y-1/2 transition-all duration-300",
+                      isActive ? "opacity-0" : "opacity-0 group-hover:opacity-100 group-hover:translate-x-0 translate-x-2"
+                    )}>
+                      <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </Link>
+                );
+              })}
             </nav>
           </div>
         )}
