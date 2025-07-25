@@ -215,6 +215,7 @@ export default function HomePage() {
                   <Link
                     href={`/projects#${project.id}`}
                     className="text-primary hover:text-purple-600 font-medium group-hover:underline transition-all duration-300 inline-flex items-center hover:translate-x-1"
+                    aria-label={`View details of ${project.title} project`}
                   >
                     {t('projects.learnMore')} 
                     <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -261,7 +262,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-400">
               <Link
                 href="/contact"
-                className="bg-white text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover-lift inline-flex items-center justify-center border-2 border-white shadow-lg hover:shadow-2xl"
+                className="bg-white text-black hover:bg-gray-100 hover:text-black px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover-lift inline-flex items-center justify-center border-2 border-white shadow-lg hover:shadow-2xl"
               >
                 <span className="mr-2">🚀</span>
                 {t('cta.getStarted')}

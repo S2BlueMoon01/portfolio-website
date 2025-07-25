@@ -25,7 +25,7 @@ export const en = {
   projects: {
     title: 'Featured Projects',
     subtitle: 'A showcase of my recent work and personal projects',
-    learnMore: 'Learn More',
+    learnMore: 'View Project Details',
     viewAll: 'View All Projects'
   },
   projectsPage: {
@@ -49,7 +49,7 @@ export const en = {
     title: 'Ready to Start Your Project?',
     subtitle: 'I\'m always excited to take on new challenges and collaborate on interesting projects.',
     getStarted: 'Get Started',
-    learnMore: 'Learn More'
+    learnMore: 'Learn More About My Services'
   },
   footer: {
     description: 'Full Stack Developer passionate about creating amazing digital experiences.',

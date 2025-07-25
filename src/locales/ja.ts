@@ -25,7 +25,7 @@ export const ja = {
   projects: {
     title: '注目のプロジェクト',
     subtitle: '最近の作品と個人プロジェクトのショーケース',
-    learnMore: '詳しく見る',
+    learnMore: 'プロジェクト詳細を見る',
     viewAll: 'すべてのプロジェクトを見る'
   },
   projectsPage: {
@@ -49,7 +49,7 @@ export const ja = {
     title: 'プロジェクトを始める準備はできましたか？',
     subtitle: '私は常に新しい挑戦に取り組み、興味深いプロジェクトでコラボレーションすることに興奮しています。',
     getStarted: 'はじめる',
-    learnMore: '詳しく見る'
+    learnMore: '私のサービスについて詳しく見る'
   },
   footer: {
     description: '素晴らしいデジタル体験の創造に情熱を注ぐフルスタック開発者。',

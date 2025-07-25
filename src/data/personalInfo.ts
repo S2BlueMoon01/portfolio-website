@@ -26,7 +26,7 @@ export const personalInfoData: Record<string, PersonalInfo> = {
     availability: "available"
   },
   ja: {
-    name: "グエン・ゴック・ハイ", 
+    name: "Nguyen Ngoc Hai", 
     title: "フルスタック開発者",
     bio: "こんにちは、私は一日中コーディングしても疲れないウェブ開発者です。プログラミングの旅を始めた当初から、有用なアプリケーションを作成するコーディングの力に魅了されました。創造性と柔軟な思考は、私が常に大切にし、参加するすべてのプロジェクトに適用する価値観です。",
     location: "ハドン、ハノイ、ベトナム",

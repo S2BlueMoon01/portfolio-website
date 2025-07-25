@@ -25,14 +25,14 @@ export const vi = {
   projects: {
     title: 'Dự Án Nổi Bật',
     subtitle: 'Giới thiệu các công việc gần đây và dự án cá nhân của tôi',
-    learnMore: 'Tìm Hiểu Thêm',
+    learnMore: 'Xem Chi Tiết Dự Án',
     viewAll: 'Xem Tất Cả Dự Án'
   },
   cta: {
     title: 'Sẵn Sàng Bắt Đầu Dự Án?',
     subtitle: 'Hãy cùng nhau biến ý tưởng của bạn thành hiện thực.',
     getStarted: 'Bắt Đầu',
-    learnMore: 'Tìm Hiểu Thêm'
+    learnMore: 'Tìm Hiểu Thêm Về Dịch Vụ Của Tôi'
   },
   footer: {
     description: 'Nhà Phát Triển Full Stack đam mê tạo ra những trải nghiệm số tuyệt vời.',

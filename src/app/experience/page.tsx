@@ -218,7 +218,7 @@ export default function ExperiencePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-400">
               <a
                 href="/contact"
-                className="bg-white text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-lg font-semibold transition-all duration-1000 transform hover:scale-105 hover-lift inline-flex items-center justify-center border-2 border-white shadow-lg hover:shadow-2xl"
+                className="bg-white text-black hover:bg-gray-100 hover:text-black px-8 py-4 rounded-lg font-semibold transition-all duration-1000 transform hover:scale-105 hover-lift inline-flex items-center justify-center border-2 border-white shadow-lg hover:shadow-2xl"
               >
                 <span className="mr-2">🚀</span>
                 {t('contact.title')}

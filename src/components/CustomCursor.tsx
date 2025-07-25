@@ -9,9 +9,19 @@ export default function CustomCursor() {
   const [cursorVariant, setCursorVariant] = useState('default')
   const { resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     setMounted(true)
+    // Check if device is mobile
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768 || 'ontouchstart' in window)
+    }
+    
+    checkIsMobile()
+    window.addEventListener('resize', checkIsMobile)
+    
+    return () => window.removeEventListener('resize', checkIsMobile)
   }, [])
 
   useEffect(() => {
@@ -87,6 +97,11 @@ export default function CustomCursor() {
   }
 
   const styles = getCursorStyles()
+
+  // Don't render cursor on mobile devices
+  if (!mounted || isMobile) {
+    return null
+  }
 
   return (
     <>
