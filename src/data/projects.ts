@@ -3,6 +3,41 @@ import { Project } from '@/types'
 export const projectsData: Record<string, Project[]> = {
   en: [
     {
+      id: "event-management-system",
+      title: "Event Management Platform",
+      description: "A comprehensive event management system with file exports, facility rentals, and revenue analytics using AWS Amplify and GraphQL.",
+      longDescription: "Currently developing a complete event management platform with export capabilities (PDF, CSV, Excel), CSV import functionality, S3 file storage, event registration system, meeting room and equipment rentals, and comprehensive revenue analytics. Built with modern AWS serverless architecture.",
+      image: "/images/projects/event-platform.jpg",
+      technologies: ["ReactJs", "AWS Amplify", "GraphQL", "DynamoDB", "AppSync", "S3", "Cognito", "Lambda", "JavaScript"],
+      category: "web",
+      featured: true,
+      inProgress: true,
+      startedAt: new Date("2024-10-01")
+    },
+    {
+      id: "gym-booking-system",
+      title: "Gym Equipment Booking System",
+      description: "A booking platform for gym equipment with real-time availability tracking and user management.",
+      longDescription: "Developed a booking system that allows users to reserve gym equipment with real-time availability updates, user authentication, booking history, and admin management features. Implemented efficient scheduling algorithms and notification system.",
+      image: "/images/projects/gym-booking.jpg", 
+      technologies: ["ReactJs", "RESTful API", "DynamoDB", "NodeJs", "JWT", "Express", "TailwindCSS"],
+      githubUrl: "https://github.com/s2bluemoon01/gym-booking",
+      category: "web",
+      featured: true,
+      completedAt: new Date("2024-08-15")
+    },
+    {
+      id: "ai-video-freelance",
+      title: "AI Video Presentation Generator",
+      description: "AI-powered platform for generating presentation videos from documents with customizable avatars and voice options.",
+      longDescription: "Freelance project for a Japanese company developing an AI video generation system. Users can upload PDF, PPTX, or TXT files to create presentation videos with AI-generated content. Features include customizable voice selection, avatar creation, background music integration, and content editing capabilities.",
+      image: "/images/projects/ai-video.jpg",
+      technologies: ["ReactJs", "AWS Amplify", "GraphQL", "DynamoDB", "Cognito", "JavaScript", "AI/ML"],
+      category: "web",
+      featured: true,
+      completedAt: new Date("2024-10-01")
+    },
+    {
       id: "coco-paris-boutique",
       title: "Coco Paris Boutique",
       description: "An e-commerce platform with comprehensive features including real-time notifications, payment integration, and admin dashboard.",
@@ -42,6 +77,41 @@ export const projectsData: Record<string, Project[]> = {
   ],
   vi: [
     {
+      id: "event-management-system",
+      title: "Hệ Thống Quản Lý Sự Kiện",
+      description: "Nền tảng quản lý sự kiện toàn diện với xuất file, thuê cơ sở vật chất và phân tích doanh thu sử dụng AWS Amplify và GraphQL.",
+      longDescription: "Hiện đang phát triển nền tảng quản lý sự kiện hoàn chỉnh với khả năng xuất file (PDF, CSV, Excel), import CSV, lưu trữ file trên S3, đăng ký sự kiện, thuê phòng họp và thiết bị, cùng phân tích doanh thu toàn diện. Xây dựng với kiến trúc serverless AWS hiện đại.",
+      image: "/images/projects/event-platform.jpg",
+      technologies: ["ReactJs", "AWS Amplify", "GraphQL", "DynamoDB", "AppSync", "S3", "Cognito", "Lambda", "JavaScript"],
+      category: "web",
+      featured: true,
+      inProgress: true,
+      startedAt: new Date("2024-10-01")
+    },
+    {
+      id: "gym-booking-system",
+      title: "Hệ Thống Booking Máy Tập",
+      description: "Nền tảng đặt lịch máy tập với theo dõi tình trạng real-time và quản lý người dùng.",
+      longDescription: "Phát triển hệ thống booking cho phép người dùng đặt lịch máy tập với cập nhật tình trạng real-time, xác thực người dùng, lịch sử đặt lịch và tính năng quản trị. Triển khai thuật toán lập lịch hiệu quả và hệ thống thông báo.",
+      image: "/images/projects/gym-booking.jpg",
+      technologies: ["ReactJs", "RESTful API", "DynamoDB", "NodeJs", "JWT", "Express", "TailwindCSS"],
+      githubUrl: "https://github.com/s2bluemoon01/gym-booking",
+      category: "web",
+      featured: true,
+      completedAt: new Date("2024-08-15")
+    },
+    {
+      id: "ai-video-freelance",
+      title: "Hệ Thống Tạo Video Thuyết Trình AI",
+      description: "Nền tảng AI tạo video thuyết trình từ tài liệu với tùy chọn avatar và giọng nói có thể tùy chỉnh.",
+      longDescription: "Dự án freelance cho công ty Nhật Bản phát triển hệ thống tạo video AI. Người dùng có thể upload file PDF, PPTX, TXT để tạo video thuyết trình với nội dung được AI tạo ra. Tính năng bao gồm lựa chọn giọng nói tùy chỉnh, tạo avatar, tích hợp âm nhạc nền và khả năng chỉnh sửa nội dung.",
+      image: "/images/projects/ai-video.jpg",
+      technologies: ["ReactJs", "AWS Amplify", "GraphQL", "DynamoDB", "Cognito", "JavaScript", "AI/ML"],
+      category: "web",
+      featured: true,
+      completedAt: new Date("2024-10-01")
+    },
+    {
       id: "coco-paris-boutique",
       title: "Coco Paris Boutique",
       description: "Nền tảng thương mại điện tử với các tính năng toàn diện bao gồm thông báo real-time, tích hợp thanh toán và dashboard quản trị.",
@@ -80,6 +150,41 @@ export const projectsData: Record<string, Project[]> = {
     }
   ],
   ja: [
+    {
+      id: "event-management-system",
+      title: "イベント管理プラットフォーム",
+      description: "AWS AmplifyとGraphQLを使用したファイルエクスポート、施設レンタル、収益分析機能を備えた包括的なイベント管理システム。",
+      longDescription: "現在、エクスポート機能（PDF、CSV、Excel）、CSV インポート機能、S3ファイルストレージ、イベント登録システム、会議室および機器レンタル、包括的な収益分析を備えた完全なイベント管理プラットフォームを開発中。最新のAWSサーバーレスアーキテクチャで構築。",
+      image: "/images/projects/event-platform.jpg",
+      technologies: ["ReactJs", "AWS Amplify", "GraphQL", "DynamoDB", "AppSync", "S3", "Cognito", "Lambda", "JavaScript"],
+      category: "web",
+      featured: true,
+      inProgress: true,
+      startedAt: new Date("2024-10-01")
+    },
+    {
+      id: "gym-booking-system", 
+      title: "ジム機器予約システム",
+      description: "リアルタイム空き状況追跡とユーザー管理機能を備えたジム機器の予約プラットフォーム。",
+      longDescription: "ユーザーがジム機器を予約できるシステムを開発。リアルタイム空き状況更新、ユーザー認証、予約履歴、管理機能を実装。効率的なスケジューリングアルゴリズムと通知システムを実装。",
+      image: "/images/projects/gym-booking.jpg",
+      technologies: ["ReactJs", "RESTful API", "DynamoDB", "NodeJs", "JWT", "Express", "TailwindCSS"],
+      githubUrl: "https://github.com/s2bluemoon01/gym-booking",
+      category: "web",
+      featured: true,
+      completedAt: new Date("2024-08-15")
+    },
+    {
+      id: "ai-video-freelance",
+      title: "AIビデオプレゼンテーション生成システム",
+      description: "カスタマイズ可能なアバターと音声オプションを備えた、ドキュメントからプレゼンテーションビデオを生成するAIプラットフォーム。",
+      longDescription: "日本企業向けのフリーランスプロジェクトでAIビデオ生成システムを開発。ユーザーはPDF、PPTX、TXTファイルをアップロードしてAI生成コンテンツでプレゼンテーションビデオを作成可能。カスタマイズ可能な音声選択、アバター作成、背景音楽統合、コンテンツ編集機能を含む。",
+      image: "/images/projects/ai-video.jpg",
+      technologies: ["ReactJs", "AWS Amplify", "GraphQL", "DynamoDB", "Cognito", "JavaScript", "AI/ML"],
+      category: "web",
+      featured: true,
+      completedAt: new Date("2024-10-01")
+    },
     {
       id: "coco-paris-boutique",
       title: "Coco Paris Boutique",

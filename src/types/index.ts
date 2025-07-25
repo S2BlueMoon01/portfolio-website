@@ -9,7 +9,9 @@ export interface Project {
   githubUrl?: string
   category: 'web' | 'mobile' | 'desktop' | 'other'
   featured?: boolean
-  completedAt: Date
+  completedAt?: Date
+  inProgress?: boolean
+  startedAt?: Date
 }
 
 export interface Experience {
@@ -21,7 +23,7 @@ export interface Experience {
   description: string
   technologies: string[]
   location: string
-  type: 'full-time' | 'part-time' | 'contract' | 'internship'
+  type: 'full-time' | 'part-time' | 'contract' | 'internship' | 'freelance'
 }
 
 export interface Skill {

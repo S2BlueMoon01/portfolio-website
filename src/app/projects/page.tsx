@@ -58,7 +58,12 @@ export default function ProjectsPage() {
                       {project.title}
                     </h3>
                     <span className="text-xs text-muted-foreground">
-                      {project.completedAt.getFullYear()}
+                      {project.inProgress 
+                        ? "In Progress" 
+                        : project.completedAt 
+                          ? project.completedAt.getFullYear()
+                          : "N/A"
+                      }
                     </span>
                   </div>
                   
