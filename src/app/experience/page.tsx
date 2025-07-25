@@ -45,7 +45,7 @@ export default function ExperiencePage() {
               {t('experience.workExperience')}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {t('experience.cta.workTitle')}
+              {t('experience.workExperienceSubtitle')}
             </p>
           </div>
 
@@ -105,7 +105,7 @@ export default function ExperiencePage() {
               {t('experience.education')}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {t('experience.cta.educationSubtitle')}
+              {t('experience.educationSubtitle')}
             </p>
           </div>
 
@@ -151,7 +151,7 @@ export default function ExperiencePage() {
               {t('experience.skills')}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {t('experience.cta.skillsSubtitle')}
+              {t('experience.skillsSubtitle')}
             </p>
           </div>
 
