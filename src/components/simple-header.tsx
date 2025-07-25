@@ -115,14 +115,10 @@ export function Header() {
             )}
           >
             {isMenuOpen ? (
-              <path
-                d="M18 6L6 18M6 6L18 18"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="animate-in fade-in duration-300"
-              />
+              <g className="animate-in fade-in duration-300">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" fill="none" className="opacity-20"/>
+                <path d="M15 9l-6 6M9 9l6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </g>
             ) : (
               <>
                 <path
@@ -178,15 +174,15 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="absolute top-16 left-0 right-0 bg-background/98 backdrop-blur-2xl border-b border-border/30 md:hidden shadow-2xl shadow-primary/10 animate-in slide-in-from-top duration-300">
-            <nav className="flex flex-col space-y-1 p-6">
+          <div className="absolute top-16 left-0 right-0 bg-background/100 backdrop-blur-none border-b border-border md:hidden shadow-2xl animate-in slide-in-from-top duration-300" style={{ backgroundColor: 'hsl(var(--background))' }}>
+            <nav className="flex flex-col space-y-2 p-6" style={{ backgroundColor: 'hsl(var(--background))' }}>
               {navigation.map((item, index) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={cn(
                     "relative py-4 px-5 rounded-xl transition-all duration-300 hover:bg-muted group text-sm font-medium overflow-hidden",
-                    pathname === item.href ? "text-primary bg-muted/50" : "text-foreground/70 hover:text-foreground"
+                    pathname === item.href ? "text-primary bg-muted shadow-md" : "text-foreground hover:text-foreground"
                   )}
                   onClick={() => setIsMenuOpen(false)}
                   style={{
@@ -195,7 +191,7 @@ export function Header() {
                   }}
                 >
                   {/* Animated background */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
                   
                   <span className="relative z-10 group-hover:translate-x-2 transition-transform duration-300">{t(`nav.${item.name.toLowerCase()}`) || item.name}</span>
                   
@@ -211,23 +207,6 @@ export function Header() {
                   </div>
                 </Link>
               ))}
-              
-              {/* Mobile Contact Button */}
-              <div className="pt-6 mt-4 border-t border-border/20">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center rounded-xl text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-xl hover:shadow-primary/25 px-6 py-3 w-full group overflow-hidden relative animate-in fade-in slide-in-from-bottom delay-300"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <span className="relative z-10">Get In Touch</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute right-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 translate-x-2 transition-all duration-300">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </div>
-                </Link>
-              </div>
             </nav>
           </div>
         )}
