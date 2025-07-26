@@ -25,6 +25,9 @@ export default function CustomCursor() {
   }, [])
 
   useEffect(() => {
+    // Don't set up mouse events on mobile
+    if (isMobile) return
+
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
@@ -68,9 +71,14 @@ export default function CustomCursor() {
         el.removeEventListener('mouseleave', handleMouseLeave)
       })
     }
-  }, [])
+  }, [isMobile])
 
   if (!mounted) return null
+
+  // Don't render cursor on mobile devices
+  if (isMobile) {
+    return null
+  }
 
   const isDark = resolvedTheme === 'dark'
 

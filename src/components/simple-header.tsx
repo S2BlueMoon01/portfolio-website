@@ -106,27 +106,49 @@ export function Header() {
           {/* Animated background on hover */}
           <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           
-          <svg
-            strokeWidth="1.5"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className={cn(
-              "h-5 w-5 transition-all duration-500 relative z-10",
-              isMenuOpen ? "rotate-90 scale-110" : "rotate-0 scale-100"
-            )}
-          >
+          <div className={cn(
+            "relative w-6 h-6 transition-all duration-300",
+            isMenuOpen && "rotate-45"
+          )}>
             {isMenuOpen ? (
-              <g className="animate-in fade-in duration-300">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" fill="none" className="opacity-20"/>
-                <path d="M15 9l-6 6M9 9l6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </g>
+              // Enhanced X Close Icon
+              <div className="relative w-full h-full flex items-center justify-center">
+                {/* Pulsing circle background */}
+                <div className="absolute inset-0 bg-primary/20 rounded-full animate-pulse"></div>
+                <div className="absolute inset-0.5 bg-primary/10 rounded-full"></div>
+                
+                {/* X lines with enhanced styling */}
+                <svg
+                  className="w-4 h-4 text-primary relative z-10 drop-shadow-sm"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M6 18L18 6M6 6l12 12"
+                    className="animate-in fade-in duration-200"
+                  />
+                </svg>
+                
+                {/* Subtle glow effect */}
+                <div className="absolute inset-0 bg-primary/5 rounded-full blur-sm"></div>
+              </div>
             ) : (
-              <>
+              // Enhanced Hamburger menu
+              <svg
+                strokeWidth="1.5"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 transition-all duration-300"
+              >
                 <path
                   d="M3 5H11"
                   stroke="currentColor"
-                  strokeWidth="1.5"
+                  strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   className="group-hover:translate-x-1 transition-transform duration-300"
@@ -134,7 +156,7 @@ export function Header() {
                 <path
                   d="M3 12H16"
                   stroke="currentColor"
-                  strokeWidth="1.5"
+                  strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   className="group-hover:translate-x-0.5 transition-transform duration-300 delay-75"
@@ -142,14 +164,14 @@ export function Header() {
                 <path
                   d="M3 19H21"
                   stroke="currentColor"
-                  strokeWidth="1.5"
+                  strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   className="group-hover:translate-x-1.5 transition-transform duration-300 delay-150"
                 />
-              </>
+              </svg>
             )}
-          </svg>
+          </div>
           <span className="sr-only">Toggle Menu</span>
         </button>
 

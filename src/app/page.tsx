@@ -1,6 +1,7 @@
 'use client'
 
 import Link from "next/link"
+import Image from "next/image"
 import { skills, getPersonalInfo, getProjects } from "@/data"
 import { useLanguage } from "@/contexts/LanguageContext"
 
@@ -24,33 +25,39 @@ export default function HomePage() {
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-4xl mx-auto animate-fade-in-up">
             {/* Avatar */}
-            <div className="w-36 h-36 mx-auto mb-8 relative animate-fade-in-up animation-delay-200 group cursor-pointer">
-              {/* Outer rotating gradient ring */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-purple-500 to-pink-500 animate-spin-slow opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="w-36 h-36 mx-auto mb-8 relative animate-fade-in-up animation-delay-200 group cursor-pointer transition-all duration-1000 ease-out hover:scale-105">
+              {/* Outer rotating gradient ring - very thin with smooth rotation */}
+              <div className="absolute inset-1 rounded-full bg-gradient-to-r from-primary via-purple-500 to-pink-500 animate-spin-slow opacity-80 group-hover:opacity-100 transition-all duration-1000 ease-in-out group-hover:animate-spin"></div>
               
-              {/* Middle ring */}
-              <div className="absolute inset-1 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-primary animate-pulse opacity-70"></div>
+              {/* Middle ring - very thin with breathing effect */}
+              <div className="absolute inset-[6px] rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-primary opacity-50 group-hover:opacity-70 transition-all duration-1000 ease-in-out animate-pulse group-hover:animate-bounce"></div>
               
-              {/* Inner transparent circle */}
-              <div className="absolute inset-2 rounded-full backdrop-blur-sm border border-white/10 shadow-2xl"></div>
-              
-              {/* Gradient text with glow effect */}
-              <div className="absolute inset-0 flex items-center justify-center z-10">
-                <span className="text-5xl font-black bg-gradient-to-br from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent group-hover:from-pink-600 group-hover:via-primary group-hover:to-purple-600 transition-all duration-700 group-hover:scale-110 drop-shadow-2xl filter group-hover:drop-shadow-[0_0_20px_rgba(138,43,226,0.8)]">
-                  {personalInfo.name.charAt(0)}
-                </span>
+              {/* Inner circle with image - minimal border with smooth glow */}
+              <div className="absolute inset-[10px] rounded-full backdrop-blur-sm border border-white/30 shadow-2xl overflow-hidden transition-all duration-1000 ease-in-out group-hover:border-white/50 group-hover:shadow-3xl group-hover:shadow-primary/20">
+                {/* Actual avatar image */}
+                <Image 
+                  src="/images/avatar.png" 
+                  alt="Nguyen Ngoc Hai Avatar"
+                  width={116}
+                  height={116}
+                  className="w-full h-full object-cover rounded-full transition-all duration-1000 ease-in-out group-hover:scale-110 group-hover:brightness-110 group-hover:contrast-110"
+                  priority
+                />
               </div>
               
-              {/* Shimmer effect overlay */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              {/* Shimmer effect overlay - smooth wave */}
+              <div className="absolute inset-1 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-1000 ease-in-out group-hover:animate-pulse"></div>
               
-              {/* Floating particles effect */}
+              {/* Floating particles effect with smoother animation */}
               <div className="absolute -inset-4 rounded-full">
-                <div className="absolute top-0 left-1/4 w-2 h-2 bg-primary rounded-full animate-ping opacity-75"></div>
-                <div className="absolute bottom-0 right-1/4 w-1.5 h-1.5 bg-purple-500 rounded-full animate-ping opacity-60 animation-delay-1000"></div>
-                <div className="absolute left-0 top-1/2 w-1 h-1 bg-pink-500 rounded-full animate-ping opacity-50 animation-delay-2000"></div>
-                <div className="absolute right-0 top-1/4 w-1.5 h-1.5 bg-indigo-500 rounded-full animate-ping opacity-70 animation-delay-1500"></div>
+                <div className="absolute top-0 left-1/4 w-2 h-2 bg-primary rounded-full opacity-60 group-hover:opacity-100 transition-all duration-1000 ease-in-out animate-ping group-hover:animate-bounce"></div>
+                <div className="absolute bottom-0 right-1/4 w-1.5 h-1.5 bg-purple-500 rounded-full opacity-50 group-hover:opacity-90 transition-all duration-1000 ease-in-out animate-ping animation-delay-500 group-hover:animate-bounce"></div>
+                <div className="absolute left-0 top-1/2 w-1 h-1 bg-pink-500 rounded-full opacity-40 group-hover:opacity-80 transition-all duration-1000 ease-in-out animate-ping animation-delay-1000 group-hover:animate-bounce"></div>
+                <div className="absolute right-0 top-1/4 w-1.5 h-1.5 bg-indigo-500 rounded-full opacity-55 group-hover:opacity-95 transition-all duration-1000 ease-in-out animate-ping animation-delay-1500 group-hover:animate-bounce"></div>
               </div>
+              
+              {/* Additional glow effect on hover */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover:opacity-100 transition-all duration-1000 ease-in-out blur-md group-hover:animate-pulse"></div>
             </div>
 
             {/* Main Heading */}
