@@ -48,7 +48,7 @@ export const skills: Skill[] = [
   { id: "html", name: "HTML5", category: "frontend", level: 95, icon: "🌐" },
   { id: "css", name: "CSS3", category: "frontend", level: 90, icon: "🎨" },
   { id: "javascript", name: "JavaScript", category: "frontend", level: 85, icon: "🟨" },
-  { id: "typescript", name: "TypeScript", category: "frontend", level: 80, icon: "�" },
+  { id: "typescript", name: "TypeScript", category: "frontend", level: 80, icon: "🔷" },
   { id: "react", name: "React", category: "frontend", level: 85, icon: "⚛️" },
   { id: "nextjs", name: "Next.js", category: "frontend", level: 80, icon: "▲" },
   
@@ -64,7 +64,7 @@ export const skills: Skill[] = [
   
   // Backend Development
   { id: "nodejs", name: "Node.js", category: "backend", level: 75, icon: "🟢" },
-  { id: "express", name: "Express.js", category: "backend", level: 70, icon: "�" },
+  { id: "express", name: "Express.js", category: "backend", level: 70, icon: "🚀" },
   
   // Database
   { id: "mysql", name: "MySQL", category: "database", level: 80, icon: "🐬" },
@@ -75,11 +75,11 @@ export const skills: Skill[] = [
 
   // DevOps & Tools
   { id: "git", name: "Git", category: "devops", level: 85, icon: "📋" },
-  { id: "github", name: "GitHub", category: "devops", level: 85, icon: "�" },
+  { id: "github", name: "GitHub", category: "devops", level: 85, icon: "🐙" },
   { id: "gitlab", name: "GitLab", category: "devops", level: 80, icon: "🦊" },
-  { id: "codeCommit", name: "CodeCommit", category: "devops", level: 80, icon: "�" },
+  { id: "codeCommit", name: "CodeCommit", category: "devops", level: 80, icon: "📝" },
   { id: "vercel", name: "Vercel", category: "devops", level: 75, icon: "▲" },
-  { id: "postman", name: "Postman", category: "devops", level: 80, icon: "�" },
+  { id: "postman", name: "Postman", category: "devops", level: 80, icon: "📮" },
 ]
 
 // Helper functions to get data by language
