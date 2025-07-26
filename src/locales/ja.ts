@@ -135,6 +135,7 @@ export const ja = {
     workExperience: '職歴',
     education: '教育',
     skills: 'スキルと資格',
+    skillsSubtitle: '素晴らしいデジタル体験を構築するために使用するツールと技術。',
     present: '現在',
     downloadCV: 'CV をダウンロード',
     positions: {

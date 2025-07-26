@@ -30,7 +30,7 @@ export interface Skill {
   id: string
   name: string
   category: 'frontend' | 'backend' | 'database' | 'devops' | 'design' | 'other'
-  level: 1 | 2 | 3 | 4 | 5
+  level: number
   icon?: string
 }
 

@@ -134,6 +134,7 @@ export const vi = {
     workExperience: 'Kinh Nghiệm Làm Việc',
     education: 'Học Vấn',
     skills: 'Kỹ Năng & Chứng Chỉ',
+    skillsSubtitle: 'Các công cụ và công nghệ tôi sử dụng để xây dựng trải nghiệm số tuyệt vời.',
     present: 'Hiện tại',
     downloadCV: 'Tải CV',
     positions: {

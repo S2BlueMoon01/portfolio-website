@@ -187,7 +187,7 @@ export default function ExperiencePage() {
                   {/* Progress bar with cleaner design */}
                   <div className="w-full bg-muted border border-border rounded-full h-3 mb-4 overflow-hidden group-hover:border-primary/30 transition-all duration-1000">
                     <div 
-                      className="bg-gradient-to-r from-primary to-primary/80 h-3 rounded-full transition-all duration-2000 group-hover:from-primary group-hover:to-purple-500" 
+                      className="bg-gradient-to-r from-primary to-purple-500 h-3 rounded-full transition-all duration-1000 group-hover:from-primary group-hover:to-indigo-500" 
                       style={{ width: `${skill.level}%` }}
                     ></div>
                   </div>

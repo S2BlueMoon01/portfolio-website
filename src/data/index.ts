@@ -44,32 +44,42 @@ export const socialLinks: SocialLink[] = [
 ]
 
 export const skills: Skill[] = [
-  // Frontend
-  { id: "react", name: "React", category: "frontend", level: 5, icon: "⚛️" },
-  { id: "nextjs", name: "Next.js", category: "frontend", level: 5, icon: "▲" },
-  { id: "typescript", name: "TypeScript", category: "frontend", level: 4, icon: "📘" },
-  { id: "tailwind", name: "Tailwind CSS", category: "frontend", level: 5, icon: "🎨" },
-  { id: "vue", name: "Vue.js", category: "frontend", level: 4, icon: "💚" },
+  // Frontend Development
+  { id: "html", name: "HTML5", category: "frontend", level: 95, icon: "🌐" },
+  { id: "css", name: "CSS3", category: "frontend", level: 90, icon: "🎨" },
+  { id: "javascript", name: "JavaScript", category: "frontend", level: 85, icon: "🟨" },
+  { id: "typescript", name: "TypeScript", category: "frontend", level: 80, icon: "�" },
+  { id: "react", name: "React", category: "frontend", level: 85, icon: "⚛️" },
+  { id: "nextjs", name: "Next.js", category: "frontend", level: 80, icon: "▲" },
   
-  // Backend
-  { id: "nodejs", name: "Node.js", category: "backend", level: 4, icon: "🟢" },
-  { id: "python", name: "Python", category: "backend", level: 4, icon: "🐍" },
-  { id: "express", name: "Express.js", category: "backend", level: 4, icon: "🚀" },
-  { id: "nestjs", name: "NestJS", category: "backend", level: 3, icon: "🐱" },
+  // AWS Services  
+  { id: "aws-s3", name: "AWS S3", category: "devops", level: 80, icon: "📦" },
+  { id: "aws-lambda", name: "AWS Lambda", category: "backend", level: 65, icon: "⚡" },
+  { id: "aws-appsync", name: "AWS AppSync", category: "backend", level: 70, icon: "🔗" },
+  { id: "aws-amplify", name: "AWS Amplify", category: "devops", level: 75, icon: "📱" },
+  { id: "graphql", name: "GraphQL", category: "backend", level: 75, icon: "🔷" },
+  
+  { id: "tailwind", name: "Tailwind CSS", category: "frontend", level: 90, icon: "💨" },
+  { id: "bootstrap", name: "Bootstrap", category: "frontend", level: 85, icon: "🅱️" },
+  
+  // Backend Development
+  { id: "nodejs", name: "Node.js", category: "backend", level: 75, icon: "🟢" },
+  { id: "express", name: "Express.js", category: "backend", level: 70, icon: "�" },
   
   // Database
-  { id: "mongodb", name: "MongoDB", category: "database", level: 4, icon: "🍃" },
-  { id: "postgresql", name: "PostgreSQL", category: "database", level: 4, icon: "🐘" },
-  { id: "redis", name: "Redis", category: "database", level: 3, icon: "🔴" },
-  
-  // DevOps
-  { id: "docker", name: "Docker", category: "devops", level: 3, icon: "🐳" },
-  { id: "aws", name: "AWS", category: "devops", level: 3, icon: "☁️" },
-  { id: "vercel", name: "Vercel", category: "devops", level: 4, icon: "▲" },
-  
-  // Design
-  { id: "figma", name: "Figma", category: "design", level: 3, icon: "🎨" },
-  { id: "photoshop", name: "Photoshop", category: "design", level: 3, icon: "🖼️" },
+  { id: "mysql", name: "MySQL", category: "database", level: 80, icon: "🐬" },
+  { id: "postgresql", name: "PostgreSQL", category: "database", level: 70, icon: "🐘" },
+  { id: "mongodb", name: "MongoDB", category: "database", level: 65, icon: "🍃" },
+  { id: "dynamodb", name: "DynamoDB", category: "database", level: 65, icon: "⚡" },
+  { id: "firebase", name: "Firebase", category: "database", level: 70, icon: "🔥" },
+
+  // DevOps & Tools
+  { id: "git", name: "Git", category: "devops", level: 85, icon: "📋" },
+  { id: "github", name: "GitHub", category: "devops", level: 85, icon: "�" },
+  { id: "gitlab", name: "GitLab", category: "devops", level: 80, icon: "🦊" },
+  { id: "codeCommit", name: "CodeCommit", category: "devops", level: 80, icon: "�" },
+  { id: "vercel", name: "Vercel", category: "devops", level: 75, icon: "▲" },
+  { id: "postman", name: "Postman", category: "devops", level: 80, icon: "�" },
 ]
 
 // Helper functions to get data by language
