@@ -172,6 +172,30 @@ Github, VPS, Cloudflare, Nginx, Pm2, SSL, Domain, Https,...
 
 <!-- **🔗Github**: [https://github.com](https://github.com) -->
 
+### [Gym Equipment Booking System](https://github.com/s2bluemoon01/gym-booking)
+
+This is a booking platform for gym equipment with real-time availability tracking.
+
+**Technologies used**:
+
+**_FrontEnd:_**
+ReactJs, JavaScript, Real-time Updates, User Interface Components...
+
+**_BackEnd:_**
+NodeJs, DynamoDB, JWT Authentication, Real-time Data Processing...
+
+**Functions include**:
+
+- Real-time availability tracking for gym equipment.
+- User authentication and profile management.
+- Booking history and management system.
+- Equipment scheduling with conflict prevention.
+- Admin panel for equipment management.
+- Automated notification system for booking confirmations.
+- User-friendly booking interface with calendar integration.
+- Booking analytics and reporting features.
+
+
 ### [Clinic Home Page](https://phongkhambacsyvanthanh.com)
 
 This is the homepage project of a clinic.
@@ -233,31 +257,36 @@ While studying at school I did some of the following projects:
 
 ### 🔠Programming Languages
 
-Javascript, TypeScript.
+JavaScript, TypeScript, Java.
 
 I'm quite confident that I can catch up with other languages when needed very quickly.
 
 ### 💻Web Front-end Technologies
 
-ReactJs, NextJS, React Query, RTK Query, Redux, TailwindCss, Styled Components, Bootstrap, Ant Design, ChakraUI, Sass, Webpack, Axios, Vite, Vitest, HTML5, CSS3, SEO.
+ReactJs, NextJS, React Query, RTK Query, Redux, TailwindCss, Styled Components, Bootstrap, Ant Design, ChakraUI, Material-UI, Sass, Webpack, Axios, Vite, Vitest, Socket.io-client, React Helmet, Chart.js, React Hook Form, Yup, HTML5, CSS3, SEO.
 
 ### 🧮Web Back-end Technologies
 
-- Protocols: REST, HTTP(S).
-- Frameworks/Libraries: Node.js, ExpressJS.
-- Cloud Services: AWS, Vercel, Cloudinary.
+- Protocols: REST, HTTP(S), GraphQL, WebSocket.
+- Frameworks/Libraries: Node.js, ExpressJS, NestJS, Socket.
+- Authentication: JWT, Bcrypt.
+- Cloud Services: AWS (Amplify, S3, Lambda, DynamoDB, AppSync, Cognito), Vercel, Cloudinary.
+- Email Services: Nodemailer.
+- Payment Integration: VNPay.
+- File Processing: Multer, AWS S3.
+- Security: Express Rate Limit, XSS Sanitization.
 
 ### 📦Databases
 
-MongoDB, MySQL, SQLServer, PostgreSQL.
+MongoDB, MySQL, SQL Server, PostgreSQL, DynamoDB (NoSQL).
 
 ### 🛜Deploy
 
-CloudVPS, Cloudflare, Vercel, Github Pages, Https, SSL, Domain, Nginx,...
+VPS (Virtual Private Server), CloudVPS, Cloudflare, Vercel, Github Pages, AWS Amplify, HTTPS, SSL Certificate, Domain Management, Nginx Web Server, PM2 Process Manager, Ubuntu Server, Serverless Architecture.
 
 ### 🔨Dev Tools
 
-Git, Postman, Lighthouse, React Developer Tool, Redux Dev Tool, React Query Dev Tool, Github, Figma, VS Code, Bash,...
+Git, Github, Postman, Lighthouse, React Developer Tool, Redux Dev Tool, React Query Dev Tool, Figma, VS Code, Bash, ESLint, Prettier, Webpack, PM2, Nginx, Ubuntu Server Configuration.
 
 ### 💁🏻‍♂️Industrial & Interpersonal Skills
 
