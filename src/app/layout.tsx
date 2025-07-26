@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ScrollAnimations } from "@/components/scroll-animations";
 import CustomCursor from "@/components/CustomCursor";
+import { GoToTopButton } from "@/components/GoToTopButton";
 import { personalInfo } from "@/data";
 import { en } from "@/locales/en";
 
@@ -80,6 +81,7 @@ export default function RootLayout({
               <Footer />
             </div>
             <ScrollAnimations />
+            <GoToTopButton />
           </LanguageProvider>
         </ThemeProvider>
       </body>
