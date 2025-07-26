@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     const markdownContent = fs.readFileSync(markdownPath, 'utf-8')
     
     // Simple HTML conversion (basic markdown to HTML)
-    let htmlContent = markdownContent
+    const htmlContent = markdownContent
       // Convert headers
       .replace(/^### (.*$)/gim, '<h3>$1</h3>')
       .replace(/^## (.*$)/gim, '<h2>$1</h2>')
