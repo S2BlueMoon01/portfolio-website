@@ -32,7 +32,9 @@ export const vi = {
     title: 'Sẵn Sàng Bắt Đầu Dự Án?',
     subtitle: 'Hãy cùng nhau biến ý tưởng của bạn thành hiện thực.',
     getStarted: 'Bắt Đầu',
-    learnMore: 'Tìm Hiểu Thêm Về Dịch Vụ Của Tôi'
+    learnMore: 'Tìm Hiểu Thêm Về Dịch Vụ Của Tôi',
+    downloadCV: 'Tải CV',
+    downloading: 'Đang tải...'
   },
   footer: {
     description: 'Nhà Phát Triển Full Stack đam mê tạo ra những trải nghiệm số tuyệt vời.',
@@ -162,7 +164,8 @@ export const vi = {
     },
     cta: {
       title: 'Hãy Bắt Đầu Cuộc Trò Chuyện',
-      subtitle: 'Tôi luôn sẵn sàng thảo luận về những cơ hội mới, dự án sáng tạo, hoặc chỉ đơn giản là trò chuyện thân thiện về công nghệ và đổi mới.'
+      subtitle: 'Tôi luôn sẵn sàng thảo luận về những cơ hội mới, dự án sáng tạo, hoặc chỉ đơn giản là trò chuyện thân thiện về công nghệ và đổi mới.',
+      downloadCV: 'Tải CV'
     }
   },
   notFound: {

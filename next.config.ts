@@ -20,9 +20,9 @@ const nextConfig: NextConfig = {
   },
 
   // Enable static exports for better performance
-  output: process.env.NODE_ENV === "production" ? "export" : undefined,
+  // output: process.env.NODE_ENV === "production" ? "export" : undefined,
   trailingSlash: true,
-  distDir: "out",
+  // distDir: "out",
 
   // Bundle analyzer
   webpack: (config, { dev, isServer }) => {

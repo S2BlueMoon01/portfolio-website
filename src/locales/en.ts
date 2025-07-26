@@ -49,7 +49,9 @@ export const en = {
     title: 'Ready to Start Your Project?',
     subtitle: 'I\'m always excited to take on new challenges and collaborate on interesting projects.',
     getStarted: 'Get Started',
-    learnMore: 'Learn More About My Services'
+    learnMore: 'Learn More About My Services',
+    downloadCV: 'Download CV',
+    downloading: 'Downloading...'
   },
   footer: {
     description: 'Full Stack Developer passionate about creating amazing digital experiences.',
@@ -159,7 +161,8 @@ export const en = {
     },
     cta: {
       title: 'Let\'s Start a Conversation',
-      subtitle: 'I\'m always open to discussing new opportunities, creative projects, or just having a friendly chat about technology and innovation.'
+      subtitle: 'I\'m always open to discussing new opportunities, creative projects, or just having a friendly chat about technology and innovation.',
+      downloadCV: 'Download CV'
     }
   },
   notFound: {

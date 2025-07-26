@@ -3,7 +3,7 @@
 
 <!-- # <h1 style="background-image: linear-gradient(to right,  #fc466b, #3f5efb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; ">Nguyen Ngoc Hai</h1> -->
 
-<img alt = 'Avatar' src="./public/images/avatar.png" width="166px" style='border-radius: 10px; margin-bottom: 20px;'/>
+<img alt = 'Avatar' src="public/images/avatar.png" width="166px" style='border-radius: 10px; margin-bottom: 20px;'/>
 
 - 🎂**Birthday**: 10/05/2001
 - 🏰**Address**: Ha Dong, Ha Noi, Viet Nam

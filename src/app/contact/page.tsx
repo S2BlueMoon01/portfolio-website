@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { ContactForm } from "@/types"
 import { useLanguage } from "@/contexts/LanguageContext"
+import { DownloadCVButton } from "@/components/DownloadCVButton"
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -45,9 +46,16 @@ export default function ContactPage() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
               {t('contact.title').split(' ')[0]} <span className="bg-gradient-to-r from-primary via-purple-600 to-pink-600 bg-clip-text text-transparent">{t('contact.title').split(' ').slice(1).join(' ')}</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
               {t('contact.subtitle')}
             </p>
+            
+            {/* Download CV Button */}
+            <div className="mb-12">
+              <DownloadCVButton className="mx-auto">
+                {t('experience.downloadCV')}
+              </DownloadCVButton>
+            </div>
           </div>
         </div>
       </section>

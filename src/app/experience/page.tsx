@@ -2,6 +2,7 @@
 
 import { skills, getExperiences, getEducation } from "@/data"
 import { useLanguage } from "@/contexts/LanguageContext"
+import { DownloadCVButton } from "@/components/DownloadCVButton"
 
 export default function ExperiencePage() {
   const { t, language } = useLanguage()
@@ -30,9 +31,16 @@ export default function ExperiencePage() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
               {t('experience.title')}
             </h1>
-            <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
               {t('experience.subtitle')}
             </p>
+            
+            {/* Download CV Button */}
+            <div className="mb-12">
+              <DownloadCVButton className="mx-auto">
+                {t('experience.downloadCV')}
+              </DownloadCVButton>
+            </div>
           </div>
         </div>
       </section>

@@ -49,7 +49,9 @@ export const ja = {
     title: 'プロジェクトを始める準備はできましたか？',
     subtitle: '私は常に新しい挑戦に取り組み、興味深いプロジェクトでコラボレーションすることに興奮しています。',
     getStarted: 'はじめる',
-    learnMore: '私のサービスについて詳しく見る'
+    learnMore: '私のサービスについて詳しく見る',
+    downloadCV: 'CV をダウンロード',
+    downloading: 'ダウンロード中...'
   },
   footer: {
     description: '素晴らしいデジタル体験の創造に情熱を注ぐフルスタック開発者。',
@@ -162,12 +164,9 @@ export const ja = {
       bootcampDescription: 'React、Node.js、データベースを含む現代的なWeb技術を網羅した集中プログラム。'
     },
     cta: {
-      title: '私のキャリアジャーニー',
-      workTitle: 'ソフトウェア開発における多様なプロジェクトでの経験',
-      educationTitle: '私の教育的背景',
-      educationSubtitle: 'ソフトウェア開発とコンピューターサイエンスにおける学習ジャーニー',
-      skillsTitle: '私が使用するツールと技術',
-      skillsSubtitle: '現代のソフトウェア開発における私の技術スタック'
+      title: '会話を始めましょう',
+      subtitle: '新しい機会、創造的なプロジェクト、または技術とイノベーションについての友好的なチャットについて話し合うことを常に歓迎しています。',
+      downloadCV: 'CV をダウンロード'
     }
   },
   notFound: {
