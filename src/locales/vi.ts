@@ -42,6 +42,7 @@ export const vi = {
     connect: 'Kết Nối',
     allRightsReserved: 'Tất cả quyền được bảo lưu.',
     builtWith: 'Được xây dựng với',
+    using: 'sử dụng',
     and: 'và'
   },
   contact: {

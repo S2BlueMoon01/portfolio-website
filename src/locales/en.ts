@@ -59,6 +59,7 @@ export const en = {
     connect: 'Connect',
     allRightsReserved: 'All rights reserved.',
     builtWith: 'Built with',
+    using: 'using',
     and: 'and'
   },
   contact: {

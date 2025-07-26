@@ -21,7 +21,7 @@ export function Footer() {
             <Link href="/" className="flex items-center space-x-3 mb-6 group">
               <div className="relative">
                 <div className="w-12 h-12 bg-gradient-to-br from-primary via-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-                  {personalInfo.name.charAt(0)}
+                  H
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-br from-primary via-purple-500 to-pink-500 rounded-xl opacity-0 group-hover:opacity-30 blur transition-all duration-300"></div>
               </div>
@@ -153,7 +153,7 @@ export function Footer() {
           <p className="text-muted-foreground text-sm flex items-center gap-2 mt-2 md:mt-0 group">
             {t('footer.builtWith')} 
             <HeartIcon className="w-4 h-4 text-red-500 animate-pulse group-hover:scale-125 transition-transform duration-300" /> 
-            using 
+            {t('footer.using')} 
             <span className="font-semibold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
               Next.js
             </span> {t('footer.and')} 

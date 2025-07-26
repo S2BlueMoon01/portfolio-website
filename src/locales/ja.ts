@@ -59,6 +59,7 @@ export const ja = {
     connect: 'つながる',
     allRightsReserved: 'すべての権利を保有。',
     builtWith: '使用技術',
+    using: 'を使用',
     and: 'と'
   },
   contact: {
