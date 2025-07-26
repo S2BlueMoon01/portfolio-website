@@ -108,16 +108,25 @@ export function DownloadCVButton({ className = '', children }: DownloadCVButtonP
 
       {/* Language Selection Menu */}
       {showLanguageMenu && (
-        <div className="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 z-50">
-          <div className="py-2">
-            {languageOptions.map((lang) => (
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-background/95 border border-border/50 backdrop-blur-sm rounded-xl shadow-2xl z-[9999] overflow-visible">
+          <div className="py-1">
+            {languageOptions.map((lang, index) => (
               <button
                 key={lang.code}
                 onClick={() => handleDownloadCV(lang.code)}
-                className="w-full px-4 py-2 text-left hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center space-x-3"
+                className={`w-full px-4 py-3 text-left hover:bg-muted/80 transition-all duration-200 flex items-center space-x-3 group relative overflow-hidden ${
+                  index === 0 ? 'rounded-t-xl' : ''
+                } ${
+                  index === languageOptions.length - 1 ? 'rounded-b-xl' : ''
+                }`}
               >
-                <span className="text-lg">{lang.flag}</span>
-                <span className="text-gray-700 dark:text-gray-300">{lang.name}</span>
+                {/* Hover gradient effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+                
+                <span className="text-xl relative z-10">{lang.flag}</span>
+                <span className="text-foreground font-medium relative z-10 group-hover:text-primary transition-colors duration-200">
+                  {lang.name}
+                </span>
               </button>
             ))}
           </div>
@@ -127,7 +136,7 @@ export function DownloadCVButton({ className = '', children }: DownloadCVButtonP
       {/* Overlay to close menu when clicking outside */}
       {showLanguageMenu && (
         <div 
-          className="fixed inset-0 z-40" 
+          className="fixed inset-0 z-[9998]" 
           onClick={() => setShowLanguageMenu(false)}
         />
       )}

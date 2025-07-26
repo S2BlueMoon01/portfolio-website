@@ -56,7 +56,7 @@ export function Header() {
                 "w-10 h-10 bg-gradient-to-br from-primary via-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg transition-all duration-500",
                 "group-hover:shadow-xl group-hover:scale-110 group-hover:rotate-3"
               )}>
-                {personalInfo.name.charAt(0)}
+                H
               </div>
               <div className="absolute inset-0 bg-gradient-to-br from-primary via-purple-500 to-pink-500 rounded-xl opacity-0 group-hover:opacity-40 blur-xl transition-all duration-500"></div>
               {/* Floating particles effect */}

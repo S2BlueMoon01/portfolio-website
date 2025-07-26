@@ -4,18 +4,26 @@ import * as React from "react"
 import { useTheme } from "next-themes"
 
 export function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme()
+  const { setTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
+  const [isTransitioning, setIsTransitioning] = React.useState(false)
 
   React.useEffect(() => {
     setMounted(true)
   }, [])
 
+  // Ensure we have a resolved theme, fallback to 'light' if undefined
+  const currentTheme = resolvedTheme || 'light'
+
   const toggleTheme = () => {
-    const newTheme = theme === "dark" ? "light" : "dark"
+    if (isTransitioning) return
+    
+    setIsTransitioning(true)
+    const newTheme = currentTheme === "dark" ? "light" : "dark"
     setTheme(newTheme)
-    console.log('Theme changed from', theme, 'to', newTheme)
-    console.log('Resolved theme:', resolvedTheme)
+    
+    // Reset transition state after animation completes
+    setTimeout(() => setIsTransitioning(false), 700)
   }
 
   if (!mounted) {
@@ -32,17 +40,20 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="relative inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-muted via-muted/50 to-background border border-border/50 transition-all duration-500 hover:scale-110 hover:shadow-lg hover:shadow-primary/20 active:scale-95 group overflow-hidden backdrop-blur-sm"
-      title={`Current theme: ${theme}, resolved: ${resolvedTheme}`}
+      disabled={isTransitioning}
+      className={`relative inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-muted via-muted/50 to-background border border-border/50 transition-all duration-500 hover:scale-110 hover:shadow-lg hover:shadow-primary/20 active:scale-95 group overflow-hidden backdrop-blur-sm ${
+        isTransitioning ? 'cursor-wait' : 'cursor-pointer'
+      }`}
+      title={`Switch to ${currentTheme === "dark" ? "light" : "dark"} mode`}
     >
       {/* Animated background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-xl"></div>
       
-      {/* Sun Icon */}
+      {/* Sun Icon - Show when in dark mode (to switch to light) */}
       <svg 
         className={`absolute h-5 w-5 text-yellow-500 transition-all duration-700 transform ${
-          theme === "dark" ? "rotate-0 scale-100 opacity-100" : "rotate-180 scale-0 opacity-0"
-        }`} 
+          currentTheme === "dark" ? "rotate-0 scale-100 opacity-100" : "rotate-90 scale-0 opacity-0"
+        }`}
         fill="none" 
         stroke="currentColor" 
         viewBox="0 0 24 24"
@@ -50,10 +61,10 @@ export function ThemeToggle() {
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
       </svg>
 
-      {/* Moon Icon */}
+      {/* Moon Icon - Show when in light mode (to switch to dark) */}
       <svg 
         className={`absolute h-5 w-5 text-indigo-400 transition-all duration-700 transform ${
-          theme === "light" ? "rotate-0 scale-100 opacity-100" : "-rotate-180 scale-0 opacity-0"
+          currentTheme === "light" ? "rotate-0 scale-100 opacity-100" : "-rotate-90 scale-0 opacity-0"
         }`} 
         fill="none" 
         stroke="currentColor" 
